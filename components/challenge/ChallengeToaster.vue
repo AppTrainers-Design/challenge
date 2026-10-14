@@ -1,0 +1,4 @@
+<script setup lang="ts">
+const { toasts, dismiss } = useChallengeToast()
+</script>
+<template><div class="fixed bottom-5 end-4 z-[80] flex w-[min(26rem,calc(100vw-2rem))] flex-col gap-2" aria-live="polite" aria-atomic="false"><div v-for="toast in toasts" :key="toast.id" class="flex items-start gap-3 rounded-xl bg-white p-4 shadow-lg" :role="toast.tone === 'danger' ? 'alert' : 'status'"><AppIcon :name="toast.tone === 'success' ? 'check-circle' : 'alert-triangle'" class="mt-0.5 h-5 w-5 shrink-0" :class="toast.tone === 'success' ? 'text-accent-deep' : 'text-red-700'" /><p class="flex-1 text-sm text-heading">{{ $t(toast.key, toast.params || {}) }}</p><button type="button" class="challenge-icon-button" :aria-label="$t('challenge.shell.close')" @click="dismiss(toast.id)"><AppIcon name="close" class="h-4 w-4" /></button></div></div></template>
