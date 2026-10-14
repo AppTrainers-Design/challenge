@@ -1,0 +1,27 @@
+{
+  "exam": {
+    "active": {
+      "chooseAnswer": "اختر إجابة واحدة",
+      "counter": "سؤال {current} من {total}"
+    }
+  },
+  "learn": {
+    "content": {
+      "error": "تعذّر تحميل هذا العنصر. حاول مرة أخرى.",
+      "resumedFrom": "استأنفنا من {time}",
+      "startOver": "البدء من البداية",
+      "watch": "مشاهدة"
+    },
+    "player": {
+      "exitFullscreen": "إنهاء ملء الشاشة",
+      "fullscreen": "ملء الشاشة",
+      "mute": "كتم الصوت",
+      "pause": "إيقاف مؤقت",
+      "play": "تشغيل",
+      "seek": "شريط التقدّم",
+      "speed": "سرعة التشغيل",
+      "unmute": "إلغاء كتم الصوت",
+      "volume": "مستوى الصوت"
+    }
+  }
+}

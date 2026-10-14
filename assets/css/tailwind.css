@@ -1,0 +1,103 @@
+/* Google Fonts are loaded via <link> tags in nuxt.config.ts (app.head.link) instead
+   of an @import here: an @import is only discovered after this stylesheet downloads and
+   parses, creating a request chain that blocks first paint. The <link>s sit in the initial
+   HTML so the browser fetches the font CSS immediately and preconnects warm the gstatic
+   TLS handshake in parallel. Same URL + weights ⇒ identical typography. */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── CSS Variables ──────────────────────────────── */
+:root {
+  --color-brand:    #8062FD;
+  --color-brand-dk: #6B4AEE;
+  --color-text:     rgba(1, 0, 40, 0.8);
+  --font-base:      'Poppins', 'Cairo', sans-serif;
+  --font-size-base: 13px;
+}
+
+/* ─── Base ───────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* Root rem unit — scales all rem-based Tailwind text/spacing project-wide. */
+  font-size: 13px;
+}
+
+body {
+  font-family: var(--font-base);
+  font-size: var(--font-size-base);
+  color: var(--color-text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Form controls don't inherit font-family by default — force Poppins everywhere */
+input,
+select,
+textarea,
+button {
+  font-family: inherit;
+}
+
+/* ─── Arabic typeface ────────────────────────────── */
+/* Poppins has no Arabic glyphs, so the font stack falls back to Cairo for Arabic
+   everywhere automatically. In RTL (Arabic locale) we make Cairo primary so numerals
+   and punctuation match the Arabic text too. Latin (default locale) stays Poppins. */
+[dir="rtl"] body,
+[dir="rtl"] input,
+[dir="rtl"] select,
+[dir="rtl"] textarea,
+[dir="rtl"] button,
+[dir="rtl"] .font-sans {
+  font-family: 'Cairo', 'Poppins', sans-serif;
+}
+
+/* ─── Scrollbar ──────────────────────────────────── */
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-brand) transparent;
+}
+
+/* WebKit (Chrome, Edge, Safari) */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--color-brand), var(--color-brand-dk));
+  border-radius: 9999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-brand-dk);
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* ─── reCAPTCHA badge ────────────────────────────── */
+/* The invisible widget floats a Google badge bottom-right. Hiding it is allowed ONLY
+   because components/Recaptcha.vue renders the required attribution text instead — if
+   that notice is ever removed, this rule must go too (Google's terms). The badge is
+   appended to <body>, outside the component, so the rule has to live here. */
+.grecaptcha-badge {
+  visibility: hidden;
+}

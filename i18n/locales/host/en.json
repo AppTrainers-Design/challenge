@@ -1,0 +1,27 @@
+{
+  "exam": {
+    "active": {
+      "chooseAnswer": "Choose one answer",
+      "counter": "Question {current} of {total}"
+    }
+  },
+  "learn": {
+    "content": {
+      "error": "Couldn’t load this item. Please try again.",
+      "resumedFrom": "Resumed from {time}",
+      "startOver": "Start from beginning",
+      "watch": "Watch"
+    },
+    "player": {
+      "exitFullscreen": "Exit fullscreen",
+      "fullscreen": "Fullscreen",
+      "mute": "Mute",
+      "pause": "Pause",
+      "play": "Play",
+      "seek": "Seek",
+      "speed": "Playback speed",
+      "unmute": "Unmute",
+      "volume": "Volume"
+    }
+  }
+}
